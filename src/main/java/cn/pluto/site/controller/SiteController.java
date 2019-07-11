@@ -44,6 +44,7 @@ public class SiteController {
 	@Autowired
 	private TagsService tagService ;
 	
+	@Autowired
 	private ArticleTagsService articleTagService ;
 
 	@GetMapping(value = {"", "/", "/index"})
@@ -64,7 +65,6 @@ public class SiteController {
 		setting.setSiteLinks(JSONArray.parseArray((String) setting.getSiteLinks()));
         setting.setSiteDonation(JSONArray.parseArray((String) setting.getSiteDonation()));
         model.addAttribute("setting", setting);
-		
 	}
 
 	/**
@@ -73,14 +73,12 @@ public class SiteController {
 	 * @param model
 	 */
 	private void initIndex(Integer pageCode, Model model) {
-		
 		// 分页文章数据
 		Map<String, Object> map = articleService.findByPageForSite(pageCode, 6) ;
         map.put("total", (long) Math.ceil(((Long) map.get("total")).doubleValue() / (double) 6)) ;
         // 格式：[{...}, {...}, {...}]
         model.addAttribute("list", map) ;
         model.addAttribute("pageCode", pageCode) ;
-        
 	}
 	
 	/**
@@ -196,6 +194,7 @@ public class SiteController {
 		return "site/page/tags/index" ;
 	}
 	
+	@GetMapping("/tags/{tag}")
 	public String archives(@PathVariable("tag") String tag ,Model model) {
 		model.addAttribute("list" ,articleTagService.findByTagName(tag)) ;
 		model.addAttribute("tag" ,tag) ;

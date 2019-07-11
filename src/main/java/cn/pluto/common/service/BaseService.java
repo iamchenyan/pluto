@@ -21,6 +21,8 @@ public interface BaseService<T> {
 	
 	void updateAll(T entity) ;
 	
+	void updateNotNull(T entity);
+	
 	List<T> selectByExample(Object example) ;
 
 }
