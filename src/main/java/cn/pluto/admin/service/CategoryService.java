@@ -1,4 +1,4 @@
-package cn.pluto.admin.service.impl;
+package cn.pluto.admin.service;
 
 import java.util.List;
 

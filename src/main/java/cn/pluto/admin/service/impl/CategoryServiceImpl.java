@@ -11,6 +11,7 @@ import cn.pluto.admin.exception.GlobalException;
 import cn.pluto.admin.mapper.CategoryMapper;
 import cn.pluto.admin.service.ArticleCategoryService;
 import cn.pluto.admin.service.ArticleService;
+import cn.pluto.admin.service.CategoryService;
 import cn.pluto.common.service.impl.BaseServiceImpl;
 
 /** 
