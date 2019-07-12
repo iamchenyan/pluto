@@ -23,10 +23,10 @@ public interface ArticleMapper extends MyMapper<Article> {
 	long getLastId() ;
   
 	@Select("select distinct date_format(publish_time, '%Y-%m') from tb_article order by date_format(publish_time, '%Y-%m') desc")
-	List<String> findArchivesByDates() ;
+	List<String> findArchivesDates() ;
 	
 	@Select("select id, title, publish_time from tb_article where publish_time like concat('%', #{date}, '%')")
-	List<String> findArchivesByDate(String date) ;
+	List<Article> findArchivesByDate(String date) ;
 	
 	@Select("select * from tb_article where title like concat('%', #{date}, '%')")
 	List<Article> findFuzzyByTitle(String title) ;

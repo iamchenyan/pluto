@@ -14,7 +14,7 @@ import lombok.Data;
 * @version 创建时间：2019年5月15日 下午10:05:24 
 */
 @Data
-@Table(name = "tb_stting")
+@Table(name = "tb_setting")
 public class Setting implements Serializable{
 	
 	@Id
